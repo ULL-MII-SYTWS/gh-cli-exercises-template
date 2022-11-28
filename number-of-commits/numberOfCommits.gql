@@ -1,0 +1,12 @@
+ # default value for the branch variable set to "main"
+ query numberOfCommits($org: String!, $repo: String!, $branch: String = "main") {
+    repository(owner: $org, name: $repo) {
+      object(expression: $branch) {
+        ... on Commit { # fragments: If you are querying a field that returns an interface or a union type, you will need to use inline fragments to access data on the underlying concrete type.
+          history {
+            totalCount
+          }
+        }
+      }
+    }
+}

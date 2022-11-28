@@ -1,0 +1,6 @@
+query {
+  organization(login: "nasa") {
+    name
+    url
+  }
+}
